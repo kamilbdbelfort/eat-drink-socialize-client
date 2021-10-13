@@ -1,12 +1,12 @@
-import { SPACE_DETAILS_FETCHED } from "./actions";
+import { PLACE_DETAILS_FETCHED } from "./actions";
 
 const initialState = {
-  stories: []
+  stories: [],
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case SPACE_DETAILS_FETCHED:
+    case PLACE_DETAILS_FETCHED:
       return { ...state, ...payload };
 
     default:

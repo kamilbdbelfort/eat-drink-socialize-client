@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import appState from "./appState/reducer";
 import user from "./user/reducer";
-import spaces from "./spaces/reducer";
-import spaceDetails from "./spaceDetails/reducer";
+import places from "./places/reducer";
+import placeDetails from "./placeDetails/reducer";
+import reviews from "./reviews/reducer";
 
 export default combineReducers({
   appState,
   user,
-  spaces,
-  spaceDetails
+  places,
+  placeDetails,
+  reviews,
 });

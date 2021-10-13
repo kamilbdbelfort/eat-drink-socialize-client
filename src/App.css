@@ -1,0 +1,50 @@
+.App {
+  color: darkslategrey;
+}
+
+/* // src/components/Navigation*/
+.Navbar {
+  color: darkslategray;
+  font-size: 30px;
+  border: 15px;
+}
+
+.Nav-link {
+  color: darkslategray;
+  font-size: 25px;
+}
+
+.Places {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.Place {
+  max-width: 47.5%;
+  border-style: groove;
+  border-color: black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.Place-details {
+  max-width: 50%;
+  border-style: groove;
+  border-color: black;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.Place-component {
+  max-width: 100%;
+}
+
+.Review-component {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
