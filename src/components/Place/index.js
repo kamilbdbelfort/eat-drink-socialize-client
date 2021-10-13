@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Place(props) {
   return (
     <>
-      <div style={{ width: "10%" }}></div>
+      <div style={{ width: "20%" }}></div>
       <Jumbotron className="Place-component">
         <img src={props.image} alt={props.name} />
         <h1>{props.name}</h1>
@@ -22,7 +22,7 @@ export default function Place(props) {
           </Link>
         ) : null}
       </Jumbotron>
-      <div style={{ width: "45%" }}></div>
+      <div style={{ width: "20%" }}></div>
     </>
   );
 }

@@ -20,9 +20,7 @@ export default function Navigation() {
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/reviews" linkText="Latest Reviews" />
           <NavbarItem path="/places" linkText="Places" />
-          {token ? (
-            <NavbarItem path={`/users/${user.id}`} linkText={user.name} />
-          ) : null}
+          {token ? <NavbarItem path={`/me`} linkText={user.name} /> : null}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

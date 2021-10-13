@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Place from "../../components/Place";
@@ -15,7 +16,7 @@ export default function PlaceDetails() {
 
   return (
     <>
-      <div className="Places">
+      <Container className="Places">
         <div key={place.id} className="Place-details">
           <Place
             key={place.id}
@@ -30,7 +31,7 @@ export default function PlaceDetails() {
             showLink={false}
           />
         </div>
-      </div>
+      </Container>
     </>
   );
 }

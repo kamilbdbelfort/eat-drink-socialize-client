@@ -12,7 +12,6 @@ const initialState = {
   country: null,
   image: null,
   reviews: [],
-  user_places: [],
 };
 
 export default (state = initialState, action) => {
