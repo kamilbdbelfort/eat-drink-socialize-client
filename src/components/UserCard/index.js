@@ -17,22 +17,24 @@ export default function UserCard(props) {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={image} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem>Age: {age}</ListGroupItem>
-          <ListGroupItem>
-            Location: {city}, {country}
-          </ListGroupItem>
-          <ListGroupItem>Joined: {initalDate.toDateString()}</ListGroupItem>
-        </ListGroup>
-        <Card.Body>
-          <Card.Link href={instagram}>Instagram</Card.Link>
-        </Card.Body>
-      </Card>
+      {!props ? null : (
+        <Card className="UserCard" style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={image} />
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+          </Card.Body>
+          <ListGroup className="ListGroup">
+            <ListGroupItem>Age: {age}</ListGroupItem>
+            <ListGroupItem>
+              Location: {city}, {country}
+            </ListGroupItem>
+            <ListGroupItem>Joined: {initalDate.toDateString()}</ListGroupItem>
+          </ListGroup>
+          <Card.Body>
+            <Card.Link href={instagram}>Instagram</Card.Link>
+          </Card.Body>
+        </Card>
+      )}
     </>
   );
 }

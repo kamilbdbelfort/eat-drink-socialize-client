@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Container } from "react-bootstrap";
 
 import Place from "../../components/Place";
 import UserCard from "../../components/UserCard";
@@ -14,12 +13,10 @@ export default function UserDetails() {
     dispatch(getUserWithStoredToken);
   }, [dispatch]);
 
-  console.log("user", user);
-
   return (
     <>
-      <Container className="UserCard">
-        <Container>
+      <div className="Page-layout">
+        <div className="Left-side-box">
           {!user ? null : (
             <UserCard
               image={user.image}
@@ -31,8 +28,8 @@ export default function UserDetails() {
               instagram={user.instagram}
             />
           )}
-        </Container>
-        <Container>
+        </div>
+        <div className="Item-box">
           {!user.places
             ? null
             : user.places.map((place) => {
@@ -53,9 +50,9 @@ export default function UserDetails() {
                   </div>
                 );
               })}
-        </Container>
-        <Container></Container>
-      </Container>
+        </div>
+        <div className="Right-side-box"></div>
+      </div>
     </>
   );
 }

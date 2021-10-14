@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Container from "react-bootstrap/Container";
 import { fetchReviews } from "../../store/reviews/actions";
 import { selectReviews } from "../../store/reviews/selectors";
 import Review from "../../components/Review";
@@ -15,15 +14,19 @@ export default function Places() {
 
   return (
     <>
-      <Container className="Places">
-        {reviews.map((review) => {
-          return (
-            <div key={review.id} className="Place">
-              <Review key={review.id} review={review} showLink={true} />;
-            </div>
-          );
-        })}
-      </Container>
+      <div className="Page-layout">
+        <div className="Left-side-box"></div>
+        <div className="Item-box">
+          {reviews.map((review) => {
+            return (
+              <div className="item" key={review.id}>
+                <Review key={review.id} review={review} showLink={true} />;
+              </div>
+            );
+          })}
+        </div>
+        <div className="Right-side-box"></div>
+      </div>
     </>
   );
 }

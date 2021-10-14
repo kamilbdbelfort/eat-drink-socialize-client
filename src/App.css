@@ -2,16 +2,40 @@
   color: darkslategrey;
 }
 
-.UserCard {
-  height: 100%;
+.Page-layout {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.Item-box {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
+.Left-side-box {
+  height: 100%;
+  width: 15%;
+}
+
+.Right-side-box {
+  height: 100%;
+  width: 25%;
+}
+
+.item {
+  max-width: 33.5rem;
+}
+
+img {
+  max-width: 30rem;
+}
+
 /* // src/components/Navigation*/
-.Navbar {
+/* .Navbar {
   color: darkslategray;
   font-size: 30px;
   border: 15px;
@@ -20,14 +44,6 @@
 .Nav-link {
   color: darkslategray;
   font-size: 25px;
-}
-
-.Places {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
 }
 
 .Place {
@@ -50,10 +66,83 @@
   max-width: 100%;
 }
 
-.Review-component {
+.Review {
   max-width: 100%;
+} */
+
+.modal-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transform: translateZ(0);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-img {
-  max-width: 100%;
+.modal-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2.5em 1.5em 1.5em 1.5em;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (min-width: 500px) {
+  /* Center the Modal! */
+  .modal-area {
+    left: 50%;
+    top: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    max-width: 30em;
+    max-height: calc(100% - 1em);
+  }
+}
+
+._modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em;
+  line-height: 1;
+  background: #f6f6f7;
+  border: 0;
+  box-shadow: 0;
+  cursor: pointer;
+}
+
+._modal-close-icon {
+  width: 25px;
+  height: 25px;
+  fill: transparent;
+  stroke: black;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.modal-body {
+  padding-top: 0.25em;
+}
+._hide-visual {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.scroll-lock {
+  overflow: hidden;
+  margin-right: 17px;
 }
