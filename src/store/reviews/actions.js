@@ -2,10 +2,16 @@ import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
 import axios from "axios";
 
 export const FETCH_REVIEWS_SUCCESS = "FETCH_REVIEWS_SUCCESS";
+export const REVIEW_POSTED = "REVIEW_POSTED";
 
 export const fetchReviewsSuccess = (reviews) => ({
   type: FETCH_REVIEWS_SUCCESS,
   payload: reviews,
+});
+
+export const reviewPosted = (review) => ({
+  type: REVIEW_POSTED,
+  payload: review,
 });
 
 export const fetchReviews = () => {
@@ -17,5 +23,23 @@ export const fetchReviews = () => {
 
     console.log(response.data);
     dispatch(fetchReviewsSuccess(response.data));
+  };
+};
+
+export const postReview = (title, comment, image, rating, userId, placeId) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/reviews`, {
+        title: title,
+        comment: comment,
+        image: image,
+        rating: rating,
+        userId: userId,
+        placeId: placeId,
+      });
+      dispatch(reviewPosted(response.data));
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 };

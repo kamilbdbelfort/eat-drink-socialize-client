@@ -30,12 +30,13 @@ function App() {
       <MessageBox />
       <Switch>
         {isLoading ? <Loading /> : null}
-        <Route exact path="/places" component={Places} />
-        <Route path="/places/:id" component={PlaceDetails} />
-        <Route path="/reviews" component={Reviews} />
+        <Route exact path="/" component={Places} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/me" component={UserDetails} />
+        <Route path="/reviews" component={Reviews} />
+        <Route path="/places/:id" component={PlaceDetails} />
+        <Route path="/places" component={Places} />
       </Switch>
     </div>
   );

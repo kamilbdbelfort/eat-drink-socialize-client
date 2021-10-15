@@ -20,7 +20,7 @@ export default function Places() {
           {reviews.map((review) => {
             return (
               <div className="item" key={review.id}>
-                <Review key={review.id} review={review} showLink={true} />;
+                <Review key={review.id} review={review} showLink={true} />
               </div>
             );
           })}

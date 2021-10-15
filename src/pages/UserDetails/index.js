@@ -5,12 +5,17 @@ import Place from "../../components/Place";
 import UserCard from "../../components/UserCard";
 import { selectUser } from "../../store/user/selectors";
 import { getUserWithStoredToken } from "../../store/user/actions";
+import { selectPlaces } from "../../store/places/selectors";
+import { fetchPlacesUser } from "../../store/places/actions";
 
 export default function UserDetails() {
   const user = useSelector(selectUser);
+  const places = useSelector(selectPlaces);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getUserWithStoredToken);
+    dispatch(fetchPlacesUser(user.id));
   }, [dispatch]);
 
   return (
@@ -30,21 +35,18 @@ export default function UserDetails() {
           )}
         </div>
         <div className="Item-box">
-          {!user.places
+          {!places
             ? null
-            : user.places.map((place) => {
+            : places.map((place) => {
                 return (
                   <div key={place.id}>
                     <Place
                       key={place.id}
                       id={place.id}
                       name={place.name}
-                      street={place.street}
-                      number={place.number}
-                      city={place.city}
-                      postcode={place.postcode}
-                      country={place.country}
                       image={place.image}
+                      reviews={place.reviews}
+                      users={place.users}
                       showLink={true}
                     />
                   </div>

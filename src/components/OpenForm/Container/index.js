@@ -30,6 +30,8 @@ export class Container extends Component {
     document.querySelector("html").classList.toggle("scroll-lock");
   };
   render() {
+    console.log("props:", this.props);
+    const { url, setUrl } = this.props;
     return (
       <React.Fragment>
         <TriggerButton
@@ -45,6 +47,8 @@ export class Container extends Component {
             closeModal={this.closeModal}
             onKeyDown={this.onKeyDown}
             onClickOutside={this.onClickOutside}
+            url={url}
+            setUrl={setUrl}
           />
         ) : null}
       </React.Fragment>

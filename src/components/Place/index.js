@@ -1,20 +1,31 @@
 import React from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 import { Container } from "../OpenForm/Container";
+import { selectUser } from "../../store/user/selectors";
+import { postReview } from "../../store/reviews/actions";
 
 export default function Place(props) {
+  const [url, setUrl] = useState("");
   const placeRating = !props.reviews ? 0 : avgRating(props.reviews);
   const placeLikes = !props.users ? null : amountLikes(props.users);
   const placeSaved = !props.users ? null : amountSaved(props.users);
-
   const triggerText = "Give a review!";
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
   const onSubmit = (event) => {
     event.preventDefault(event);
-    console.log(event.target.name.value);
-    console.log(event.target.email.value);
+    const title = event.target.title.value;
+    const comment = event.target.comment.value;
+    const image = url;
+    const rating = event.target.rating.value;
+    dispatch(postReview(title, comment, image, rating, user.id, props.id));
+    console.log("image url?", image);
   };
 
   return (
@@ -45,7 +56,12 @@ export default function Place(props) {
             </Link>
           ) : null}
           {"   "}
-          <Container triggerText={triggerText} onSubmit={onSubmit} />
+          <Container
+            triggerText={triggerText}
+            onSubmit={onSubmit}
+            url={url}
+            setUrl={setUrl}
+          />
         </div>
       </Jumbotron>
       <div style={{ width: "20%" }}></div>

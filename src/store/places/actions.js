@@ -1,4 +1,4 @@
-import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
+import { apiUrl } from "../../config/constants";
 import axios from "axios";
 
 export const FETCH_PLACES_SUCCESS = "FETCH_PLACES_SUCCESS";
@@ -10,10 +10,16 @@ export const fetchPlacesSuccess = (places) => ({
 
 export const fetchPlaces = () => {
   return async (dispatch, getState) => {
-    const placesCount = getState().places.length;
-    const response = await axios.get(
-      `${apiUrl}/places?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${placesCount}`
-    );
+    const response = await axios.get(`${apiUrl}/places`);
+
+    //console.log(response.data);
+    dispatch(fetchPlacesSuccess(response.data));
+  };
+};
+
+export const fetchPlacesUser = (id) => {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/places/user/${id}`);
 
     //console.log(response.data);
     dispatch(fetchPlacesSuccess(response.data));
