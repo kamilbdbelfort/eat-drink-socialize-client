@@ -12,7 +12,6 @@ export const fetchPlaces = () => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/places`);
 
-    //console.log(response.data);
     dispatch(fetchPlacesSuccess(response.data));
   };
 };
@@ -21,7 +20,6 @@ export const fetchPlacesUser = (id) => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/places/user/${id}`);
 
-    //console.log(response.data);
     dispatch(fetchPlacesSuccess(response.data));
   };
 };

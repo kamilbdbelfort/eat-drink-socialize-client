@@ -1,4 +1,12 @@
-import { LOG_OUT, LOGIN_SUCCESS, TOKEN_STILL_VALID } from "./actions";
+import {
+  LOG_OUT,
+  LOGIN_SUCCESS,
+  TOKEN_STILL_VALID,
+  USER_PLACE_DATA,
+  LIKE_TRIGGED,
+  SAVED_TRIGGED,
+  ADD_NEW_USER_PLACE,
+} from "./actions";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -12,6 +20,7 @@ const initialState = {
   country: null,
   image: null,
   reviews: [],
+  user_place: {},
 };
 
 export default (state = initialState, action) => {
@@ -26,6 +35,18 @@ export default (state = initialState, action) => {
 
     case TOKEN_STILL_VALID:
       return { ...state, ...action.payload };
+
+    case USER_PLACE_DATA:
+      return { ...state, user_place: action.payload };
+
+    case LIKE_TRIGGED:
+      return { ...state, user_place: { like: action.payload } };
+
+    case SAVED_TRIGGED:
+      return { ...state, user_place: { saved: action.payload } };
+
+    case ADD_NEW_USER_PLACE:
+      return { ...state, user_place: action.payload };
 
     default:
       return state;

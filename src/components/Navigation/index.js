@@ -6,6 +6,7 @@ import { selectUser } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import { NavbarBrand } from "react-bootstrap";
 
 export default function Navigation() {
   const user = useSelector(selectUser);
@@ -14,7 +15,10 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <NavbarBrand>
+        <b>EAT - DRINK - SOCIALIZE</b>
+      </NavbarBrand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>

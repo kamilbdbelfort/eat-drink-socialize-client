@@ -4,13 +4,13 @@ import { fetchReviews } from "../../store/reviews/actions";
 import { selectReviews } from "../../store/reviews/selectors";
 import Review from "../../components/Review";
 
-export default function Places() {
+export default function Reviews() {
   const dispatch = useDispatch();
   const reviews = useSelector(selectReviews);
 
   useEffect(() => {
     dispatch(fetchReviews());
-  }, [dispatch]);
+  }, [dispatch, reviews]);
 
   return (
     <>

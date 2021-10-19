@@ -30,7 +30,6 @@ export class Container extends Component {
     document.querySelector("html").classList.toggle("scroll-lock");
   };
   render() {
-    console.log("props:", this.props);
     const { url, setUrl } = this.props;
     return (
       <React.Fragment>

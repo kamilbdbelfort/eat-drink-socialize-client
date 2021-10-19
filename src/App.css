@@ -1,13 +1,62 @@
 .App {
   color: darkslategrey;
+  font-size: 24px;
+}
+
+.Place-Details {
+  display: flex;
+  flex-direction: row;
+}
+
+.Place-Details .Left-side-box {
+  height: 100%;
+  width: 40%;
+}
+
+.Place-Details .Item-box {
+  margin-top: 20px;
+  height: 100%;
+  width: 60%;
+}
+
+.Place-component.jumbotron {
+  background-color: darkslategray;
+  color: papayawhip;
+}
+
+.Button-place {
+  background-color: darkslategray;
+  border: none;
+}
+
+.carousel.slide {
+  max-width: 1050px;
+  max-height: 900px;
+}
+
+.carousel-inner {
+  max-width: 1050px;
+  max-height: 900px;
+}
+
+.Carousel-item.active.carousel-item {
+  max-width: 1050px;
+  max-height: 900px;
+}
+
+.Carousel-item-img {
+  max-width: 1050px;
+  max-height: 900px;
 }
 
 .Page-layout {
+  background-color: teal;
   display: flex;
   flex-direction: row;
 }
 
 .Item-box {
+  margin-top: 20px;
   height: 100%;
   width: 60%;
   display: flex;
@@ -34,41 +83,89 @@ img {
   max-width: 30rem;
 }
 
-/* // src/components/Navigation*/
-/* .Navbar {
-  color: darkslategray;
-  font-size: 30px;
-  border: 15px;
+.searchbar {
+  background-color: navajowhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 5rem;
 }
 
-.Nav-link {
-  color: darkslategray;
-  font-size: 25px;
+.searchbar input {
+  border: 2px solid #eee;
+  background: #eee;
+  width: 25%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: #777;
+
+  transition: width 0.2s ease;
 }
 
-.Place {
-  max-width: 47.5%;
-  border-style: groove;
-  border-color: black;
-  padding: 5px;
-  margin: 5px;
+.searchbar input::placeholder {
+  color: #ccc;
 }
 
-.Place-details {
-  max-width: 100%;
-  border-style: groove;
-  border-color: black;
-  padding: 5px;
-  margin-bottom: 5px;
+.searchbar input:focus {
+  outline: none;
+  width: 50%;
+  box-shadow: 1px 1px 0.5rem rgba(0, 0, 0, 0.15);
+
+  background: #fff;
+  border-color: #bc32a2;
+  color: #bc32a2;
 }
 
-.Place-component {
-  max-width: 100%;
+.dropdown_positioner {
+  position: relative;
 }
 
-.Review {
-  max-width: 100%;
-} */
+.dropdown {
+  position: absolute;
+  left: 2px;
+  top: 0.5rem;
+  width: 25rem;
+
+  background: white;
+  box-shadow: 1px 1px 0.5rem rgba(0, 0, 0, 0.15);
+  color: #777;
+
+  transition: all 0.3s ease;
+  transform: perspective(400px) rotateX(-90deg);
+  transform-origin: top;
+  opacity: 0;
+}
+
+.searchbar.is-open .dropdown {
+  transform: perspective(400px) rotateX(0);
+  opacity: 1;
+}
+
+.dropdown ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  display: block;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.dropdown li:hover {
+  background: #eee;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown strong {
+  color: #bc32a2;
+  text-decoration: underline;
+}
 
 .modal-cover {
   position: fixed;

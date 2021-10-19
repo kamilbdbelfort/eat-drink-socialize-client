@@ -20,8 +20,13 @@ export const fetchReviews = () => {
     const response = await axios.get(
       `${apiUrl}/reviews?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${reviewsCount}`
     );
+    dispatch(fetchReviewsSuccess(response.data));
+  };
+};
 
-    console.log(response.data);
+export const fetchReviewsByPlace = (id) => {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/reviews/place/${id}`);
     dispatch(fetchReviewsSuccess(response.data));
   };
 };
