@@ -10,7 +10,7 @@ export default function Reviews() {
 
   useEffect(() => {
     dispatch(fetchReviews());
-  }, [dispatch, reviews]);
+  }, [dispatch]);
 
   return (
     <>

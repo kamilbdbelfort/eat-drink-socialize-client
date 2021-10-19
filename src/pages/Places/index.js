@@ -17,7 +17,7 @@ export default function Places() {
   useEffect(() => {
     dispatch(fetchPlaces());
     dispatch(fetchTags());
-  }, [dispatch, places]);
+  }, [dispatch]);
 
   return (
     <>

@@ -4,6 +4,7 @@
 }
 
 .Place-Details {
+  background-color: teal;
   display: flex;
   flex-direction: row;
 }
@@ -19,7 +20,21 @@
   width: 60%;
 }
 
+.PlaceCard.card {
+  background-color: teal;
+  border: none;
+}
+
+.ListGroup.list-group {
+  color: darkslategray;
+}
+
 .Place-component.jumbotron {
+  background-color: darkslategray;
+  color: papayawhip;
+}
+
+.Review-component.jumbotron {
   background-color: darkslategray;
   color: papayawhip;
 }
@@ -27,6 +42,12 @@
 .Button-place {
   background-color: darkslategray;
   border: none;
+}
+
+.p-5.carousel-caption {
+  font-size: 16px;
+  width: 80%;
+  color: rgb(243, 230, 115);
 }
 
 .carousel.slide {
@@ -44,8 +65,8 @@
   max-height: 900px;
 }
 
-.Carousel-item-img {
-  max-width: 1050px;
+img.Carousel-item-img {
+  max-width: 1080px;
   max-height: 900px;
 }
 

@@ -27,8 +27,12 @@ export default function ImagesCarousel(props) {
               />
             ) : null}
             <Carousel.Caption style={{}} className="p-5">
-              <h3>{review.title}</h3>
-              <p>{review.comment}</p>
+              <h3>
+                <b>{review.title}</b>
+              </h3>
+              <p>
+                <b>{review.comment}</b>
+              </p>
             </Carousel.Caption>
           </Carousel.Item>
         );

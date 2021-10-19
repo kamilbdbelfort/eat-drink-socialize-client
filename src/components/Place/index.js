@@ -16,12 +16,13 @@ import {
   updateUserPlaceLike,
   updateUserPlaceSaved,
 } from "../../store/user/actions";
+import { showStars } from "../../functions";
 
 export default function Place(props) {
   const [url, setUrl] = useState("");
   const user = useSelector(selectUser);
-  const [likeStatus, setLikeStatus] = useState();
-  const [savedStatus, setSavedStatus] = useState();
+  const [likeStatus, setLikeStatus] = useState(false);
+  const [savedStatus, setSavedStatus] = useState(false);
   const placeRating = !props.reviews ? 0 : avgRating(props.reviews);
   const placeLikes = !props.users ? 0 : amountLikes(props.users);
   const placeSaved = !props.users ? 0 : amountSaved(props.users);
@@ -72,11 +73,11 @@ export default function Place(props) {
         <img src={props.image} alt={props.name} />
         <br />
         <button className="Button-place" onClick={likeTrigger}>
-          {likeStatus ? likeIcon[1] : likeIcon[0]}
+          {!likeStatus ? likeIcon[0] : likeIcon[1]}
         </button>
         {placeLikes}{" "}
         <button className="Button-place" onClick={savedTrigger}>
-          {savedStatus ? savedIcon[1] : savedIcon[0]}
+          {!savedStatus ? savedIcon[0] : savedIcon[1]}
         </button>
         {placeSaved}
         <span role="img" aria-label="Reviews">
@@ -114,28 +115,6 @@ function avgRating(arrayReviews) {
   }
   const avgRating = Math.round(sumRatings / amountReviews, 2);
   return avgRating;
-}
-
-// show amount of fill stars
-function showStars(avgRating) {
-  if (1 > avgRating && avgRating >= 0) {
-    return "☆☆☆☆☆";
-  }
-  if (2 > avgRating && avgRating >= 1) {
-    return "★☆☆☆☆";
-  }
-  if (3 > avgRating && avgRating >= 2) {
-    return "★★☆☆☆";
-  }
-  if (4 > avgRating && avgRating >= 3) {
-    return "★★★☆☆";
-  }
-  if (5 > avgRating && avgRating >= 4) {
-    return "★★★★☆";
-  }
-  if (avgRating === 5) {
-    return "★★★★★";
-  }
 }
 
 // show amount of likes
