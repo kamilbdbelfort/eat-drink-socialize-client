@@ -6,12 +6,7 @@ import { Link } from "react-router-dom";
 
 import { Container } from "../OpenForm/Container";
 import { selectUser } from "../../store/user/selectors";
-import { fetchUserPlace, TOKEN_STILL_VALID } from "../../store/user/actions";
 import { postReview } from "../../store/reviews/actions";
-import {
-  updateUserPlaceLike,
-  updateUserPlaceSaved,
-} from "../../store/user/actions";
 import { showStars } from "../../functions";
 
 let placeLikes = 1;

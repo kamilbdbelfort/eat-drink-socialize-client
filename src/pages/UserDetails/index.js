@@ -16,7 +16,7 @@ export default function UserDetails() {
   useEffect(() => {
     dispatch(getUserWithStoredToken);
     dispatch(fetchPlacesUser(user.id));
-  }, [dispatch]);
+  }, [dispatch, user.id]);
 
   return (
     <>

@@ -14,7 +14,7 @@ export default function PlaceDetails() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPlaceById(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
   return (
     <>
       <div className="Place-Details ">
