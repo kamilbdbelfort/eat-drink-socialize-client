@@ -12,6 +12,14 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [street, setStreet] = useState("");
+  const [number, setNumber] = useState("");
+  const [city, setCity] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [country, setCountry] = useState("");
+  const [image, setImage] = useState("");
+  const [instagram, setInstagram] = useState("");
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
@@ -25,11 +33,26 @@ export default function SignUp() {
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(signUp(name, email, password));
+    dispatch(
+      signUp(
+        name,
+        email,
+        password,
+        birthday,
+        street,
+        number,
+        city,
+        postcode,
+        country,
+        image,
+        instagram
+      )
+    );
 
     setEmail("");
     setPassword("");
     setName("");
+    setBirthday("");
   }
 
   return (
@@ -40,7 +63,7 @@ export default function SignUp() {
           <Form.Label>Name</Form.Label>
           <Form.Control
             value={name}
-            onChange={event => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
             type="text"
             placeholder="Enter name"
             required
@@ -50,7 +73,7 @@ export default function SignUp() {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             type="email"
             placeholder="Enter email"
             required
@@ -64,10 +87,64 @@ export default function SignUp() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             type="password"
             placeholder="Password"
             required
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicBirthday">
+          <Form.Label>Birthday</Form.Label>
+          <Form.Control
+            value={birthday}
+            onChange={(event) => setBirthday(event.target.value)}
+            type="date"
+            placeholder="Enter date"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicStreetAndNumber">
+          <Form.Label>Street and number</Form.Label>
+          <Form.Control
+            value={street}
+            onChange={(event) => setStreet(event.target.value)}
+            type="text"
+            placeholder="Enter street"
+          />
+          <Form.Control
+            value={number}
+            onChange={(event) => setNumber(event.target.value)}
+            type="text"
+            placeholder="Enter number"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicCityPostcode">
+          <Form.Label>City and postcode</Form.Label>
+          <Form.Control
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+            type="text"
+            placeholder="Enter city"
+          />
+          <Form.Control
+            value={postcode}
+            onChange={(event) => setPostcode(event.target.value)}
+            type="text"
+            placeholder="Enter postcode"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicCityPostcode">
+          <Form.Label>Image and Instagram</Form.Label>
+          <Form.Control
+            value={image}
+            onChange={(event) => setImage(event.target.value)}
+            type="text"
+            placeholder="Enter image"
+          />
+          <Form.Control
+            value={instagram}
+            onChange={(event) => setInstagram(event.target.value)}
+            type="text"
+            placeholder="Enter instagram"
           />
         </Form.Group>
         <Form.Group className="mt-5">

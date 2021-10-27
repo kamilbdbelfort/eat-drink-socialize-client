@@ -16,6 +16,7 @@ export const USER_PLACE_DATA = "USER_PLACE_DATA";
 export const LIKE_TRIGGED = "LIKE_TRIGGED";
 export const SAVED_TRIGGED = "SAVED_TRIGGED";
 export const ADD_NEW_USER_PLACE = "ADD_NEW_USER_PLACE";
+export const USER_DATA = "USER_DATA";
 
 const loginSuccess = (userWithToken) => {
   return {
@@ -27,6 +28,11 @@ const loginSuccess = (userWithToken) => {
 const tokenStillValid = (userWithoutToken) => ({
   type: TOKEN_STILL_VALID,
   payload: userWithoutToken,
+});
+
+const userDataFetched = (userData) => ({
+  type: USER_DATA,
+  payload: userData,
 });
 
 const userPlaceDataFetched = (user_place_data) => ({
@@ -51,7 +57,19 @@ const addedNewPlace = (data) => ({
 
 export const logOut = () => ({ type: LOG_OUT });
 
-export const signUp = (name, email, password) => {
+export const signUp = (
+  name,
+  email,
+  password,
+  birthday,
+  street,
+  number,
+  city,
+  postcode,
+  country,
+  image,
+  instagram
+) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
@@ -59,6 +77,14 @@ export const signUp = (name, email, password) => {
         name,
         email,
         password,
+        birthday,
+        street,
+        number,
+        city,
+        postcode,
+        country,
+        image,
+        instagram,
       });
 
       dispatch(loginSuccess(response.data));
@@ -128,6 +154,18 @@ export const getUserWithStoredToken = () => {
       // get rid of the token by logging out
       dispatch(logOut());
       dispatch(appDoneLoading());
+    }
+  };
+};
+
+// GET all info of a specific user
+export const fetchUser = (id) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`${apiUrl}/users/${id}`);
+      dispatch(userDataFetched(response.data));
+    } catch (e) {
+      console.log(e.message);
     }
   };
 };

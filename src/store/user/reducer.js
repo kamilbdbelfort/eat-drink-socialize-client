@@ -6,6 +6,7 @@ import {
   LIKE_TRIGGED,
   SAVED_TRIGGED,
   ADD_NEW_USER_PLACE,
+  USER_DATA,
 } from "./actions";
 
 const initialState = {
@@ -36,10 +37,27 @@ export default (state = initialState, action) => {
     case TOKEN_STILL_VALID:
       return { ...state, ...action.payload };
 
+    case USER_DATA:
+      return { ...state, ...action.payload };
+
     case USER_PLACE_DATA:
       return { ...state, user_place: action.payload };
 
     case LIKE_TRIGGED:
+      // console.log("the payload", action.payload);
+      // console.log("the initial state", state);
+      // const placeExists = state.places.find(
+      //   (place) => parseInt(place.id) === parseInt(action.payload.placeId)
+      // );
+      // const updatedPlaces = placeExists ? state.places.map((place) => {
+      //   console.log("the place", place);
+      //   if (parseInt(place.id) !== parseInt(action.payload.placeId)) {
+      //     return place;
+      //   } else {
+      //     return { ...action.payload };
+      //   }
+      // }): {...state.places, action.payload};
+      // console.log("the updated places", updatedPlaces);
       return { ...state, user_place: { like: action.payload } };
 
     case SAVED_TRIGGED:

@@ -7,7 +7,7 @@ export default function LoggedIn() {
   const dispatch = useDispatch();
   return (
     <>
-      <Button class="btn btn-success" onClick={() => dispatch(logOut())}>
+      <Button className="btn btn-success" onClick={() => dispatch(logOut())}>
         Logout
       </Button>
     </>

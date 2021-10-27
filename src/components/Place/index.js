@@ -21,8 +21,11 @@ import { showStars } from "../../functions";
 export default function Place(props) {
   const [url, setUrl] = useState("");
   const user = useSelector(selectUser);
-  const [likeStatus, setLikeStatus] = useState(false);
-  const [savedStatus, setSavedStatus] = useState(false);
+  const token = user.token;
+  const place =
+    user.id &&
+    user.places &&
+    user.places.find((place) => parseInt(place.id) === parseInt(props.id));
   const placeRating = !props.reviews ? 0 : avgRating(props.reviews);
   const placeLikes = !props.users ? 0 : amountLikes(props.users);
   const placeSaved = !props.users ? 0 : amountSaved(props.users);
@@ -45,22 +48,29 @@ export default function Place(props) {
   // like place function
   function likeTrigger() {
     fetchUserPlace(user.id, props.id);
-    if (user.user_place.like === null || user.user_place.saved === null) {
+    if (user.user_place.like === null) {
       addNewLike(user.id, props.id);
     }
-    user.user_place.like ? setLikeStatus(false) : setLikeStatus(true);
+    // user.user_place.like ? setLikeStatus(false) : setLikeStatus(true);
     dispatch(updateUserPlaceLike(user.id, props.id));
   }
 
   // save place function
   function savedTrigger() {
     fetchUserPlace(user.id, props.id);
-    if (user.user_place.saved === null || user.user_place.like === null) {
+    if (user.user_place.like === null) {
       addNewSaved(user.id, props.id);
     }
-    user.user_place.saved ? setSavedStatus(false) : setSavedStatus(true);
+    // user.user_place.saved ? setSavedStatus(false) : setSavedStatus(true);
     dispatch(updateUserPlaceSaved(user.id, props.id));
   }
+
+  const likeStatus =
+    place && !place.user_places.like ? likeIcon[1] : likeIcon[0];
+  const savedStatus =
+    place && !place.user_places.saved ? savedIcon[1] : savedIcon[0];
+
+  console.log("place", place);
 
   return (
     <>
@@ -72,17 +82,21 @@ export default function Place(props) {
         </h3>
         <img src={props.image} alt={props.name} />
         <br />
-        <button className="Button-place" onClick={likeTrigger}>
-          {!likeStatus ? likeIcon[0] : likeIcon[1]}
-        </button>
-        {placeLikes}{" "}
-        <button className="Button-place" onClick={savedTrigger}>
-          {!savedStatus ? savedIcon[0] : savedIcon[1]}
-        </button>
-        {placeSaved}
-        <span role="img" aria-label="Reviews">
-          💬 {!props.reviews ? 0 : props.reviews.length}
-        </span>
+        {token ? (
+          <>
+            <button className="Button-place" onClick={likeTrigger}>
+              {likeStatus}
+            </button>
+            {placeLikes}{" "}
+            <button className="Button-place" onClick={savedTrigger}>
+              {savedStatus}
+            </button>
+            {placeSaved}
+            <span role="img" aria-label="Reviews">
+              💬 {!props.reviews ? 0 : props.reviews.length}
+            </span>
+          </>
+        ) : null}
         <br />
         <br />
         <div>
@@ -92,12 +106,14 @@ export default function Place(props) {
             </Link>
           ) : null}
           {"   "}
-          <Container
-            triggerText={triggerText}
-            onSubmit={onSubmit}
-            url={url}
-            setUrl={setUrl}
-          />
+          {token ? (
+            <Container
+              triggerText={triggerText}
+              onSubmit={onSubmit}
+              url={url}
+              setUrl={setUrl}
+            />
+          ) : null}
         </div>
       </Jumbotron>
       <div style={{ width: "20%" }}></div>
