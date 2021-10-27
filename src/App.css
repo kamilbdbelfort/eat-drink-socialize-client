@@ -189,6 +189,11 @@ img {
   text-decoration: underline;
 }
 
+.div.Item-box {
+  width: 1000px;
+  height: 900px;
+}
+
 .modal-cover {
   position: fixed;
   top: 0;
