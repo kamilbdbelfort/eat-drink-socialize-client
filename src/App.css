@@ -101,7 +101,7 @@ img.Carousel-item-img {
 }
 
 img {
-  max-width: 30rem;
+  width: 480px;
   height: 300px;
 }
 
