@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { showStars } from "../../functions";
 
 export default function Review(props) {
-  const { id, title, comment, rating, image, userId, showLink } = props.review;
+  const { id, title, comment, rating, image, user, showLink } = props.review;
 
   console.log("review props", props.review);
 
@@ -19,7 +19,7 @@ export default function Review(props) {
         <h3>
           {title} {showStars(rating)}
         </h3>{" "}
-        <i>posted by {}</i>
+        <i>posted by {user.name}</i>
         <img src={image} alt={title} />
         <p>{comment}</p>
         {showLink ? (

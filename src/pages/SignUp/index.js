@@ -12,6 +12,11 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [image, setImage] = useState("");
+  const [instagram, setInstagram] = useState("");
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
@@ -25,11 +30,18 @@ export default function SignUp() {
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(signUp(name, email, password));
+    dispatch(
+      signUp(email, password, name, birthday, city, country, image, instagram)
+    );
 
     setEmail("");
     setPassword("");
     setName("");
+    setBirthday("");
+    setCity("");
+    setCountry("");
+    setImage("");
+    setInstagram("");
   }
 
   return (
@@ -40,7 +52,7 @@ export default function SignUp() {
           <Form.Label>Name</Form.Label>
           <Form.Control
             value={name}
-            onChange={event => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
             type="text"
             placeholder="Enter name"
             required
@@ -50,7 +62,7 @@ export default function SignUp() {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             type="email"
             placeholder="Enter email"
             required
@@ -59,15 +71,59 @@ export default function SignUp() {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             type="password"
             placeholder="Password"
             required
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicBirthday">
+          <Form.Label>Birthday</Form.Label>
+          <Form.Control
+            value={birthday}
+            onChange={(event) => setBirthday(event.target.value)}
+            type="text"
+            placeholder="Enter birthday: YYYY-MM-DD"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicCity">
+          <Form.Label>City</Form.Label>
+          <Form.Control
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+            type="text"
+            placeholder="Enter city"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicCountry">
+          <Form.Label>Country</Form.Label>
+          <Form.Control
+            value={country}
+            onChange={(event) => setCountry(event.target.value)}
+            type="text"
+            placeholder="Enter country"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicImage">
+          <Form.Label>Image</Form.Label>
+          <Form.Control
+            value={image}
+            onChange={(event) => setImage(event.target.value)}
+            type="text"
+            placeholder="Enter image url"
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicInstagram">
+          <Form.Label>Instagram</Form.Label>
+          <Form.Control
+            value={instagram}
+            onChange={(event) => setInstagram(event.target.value)}
+            type="text"
+            placeholder="Enter instagram url"
           />
         </Form.Group>
         <Form.Group className="mt-5">

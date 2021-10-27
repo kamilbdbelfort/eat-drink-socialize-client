@@ -16,6 +16,7 @@ export const USER_PLACE_DATA = "USER_PLACE_DATA";
 export const LIKE_TRIGGED = "LIKE_TRIGGED";
 export const SAVED_TRIGGED = "SAVED_TRIGGED";
 export const ADD_NEW_USER_PLACE = "ADD_NEW_USER_PLACE";
+export const USER_FETCHED_BY_ID = "USER_FETCHED_BY_ID";
 
 const loginSuccess = (userWithToken) => {
   return {
@@ -44,21 +45,40 @@ const savedTrigged = (saved) => ({
   payload: saved,
 });
 
-const addedNewPlace = (data) => ({
+const addedNewUserPlace = (data) => ({
   type: ADD_NEW_USER_PLACE,
   payload: data,
 });
 
+const userFetched = (user) => ({
+  type: USER_FETCHED_BY_ID,
+  payload: user,
+});
+
 export const logOut = () => ({ type: LOG_OUT });
 
-export const signUp = (name, email, password) => {
+export const signUp = (
+  email,
+  password,
+  name,
+  birthday,
+  city,
+  country,
+  image,
+  instagram
+) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
       const response = await axios.post(`${apiUrl}/signup`, {
-        name,
         email,
         password,
+        name,
+        birthday,
+        city,
+        country,
+        image,
+        instagram,
       });
 
       dispatch(loginSuccess(response.data));
@@ -132,6 +152,18 @@ export const getUserWithStoredToken = () => {
   };
 };
 
+// GET user by id
+export const fetchUserById = (userId) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`${apiUrl}/users/${userId}`);
+      dispatch(userFetched(response.data));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};
+
 // GET user_place info aka user's liked & saved places
 export const fetchUserPlace = (userId, placeId) => {
   return async (dispatch, getState) => {
@@ -147,34 +179,18 @@ export const fetchUserPlace = (userId, placeId) => {
   };
 };
 
-// POST add a like for the first time
-export const addNewLike = (userId, placeId) => {
+// POST add a new user_place is not exists
+export const addUserPlace = (userId, placeId) => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.post(`${apiUrl}/users/user_place/newLike`, {
-        userId: userId,
-        placeId: placeId,
-        like: true,
-        saved: false,
-      });
-      dispatch(addedNewPlace(response.data));
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
-};
-
-// POST add a saved for the first time
-export const addNewSaved = (userId, placeId) => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await axios.post(`${apiUrl}/users/user_place/newSaved`, {
-        userId: userId,
-        placeId: placeId,
-        like: false,
-        saved: true,
-      });
-      dispatch(addedNewPlace(response.data));
+      const response = await axios.post(
+        `${apiUrl}/users/user_place/newUserPlace`,
+        {
+          userId: userId,
+          placeId: placeId,
+        }
+      );
+      dispatch(addedNewUserPlace(response.data));
     } catch (e) {
       console.log(e.message);
     }
