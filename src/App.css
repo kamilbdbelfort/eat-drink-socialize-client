@@ -66,8 +66,8 @@
 }
 
 img.Carousel-item-img {
-  max-width: 1080px;
-  max-height: 900px;
+  width: 1080px;
+  height: 900px;
 }
 
 .Page-layout {
