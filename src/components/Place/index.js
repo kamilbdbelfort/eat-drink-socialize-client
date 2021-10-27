@@ -138,31 +138,31 @@ function avgRating(arrayReviews) {
 }
 
 // show amount of likes
-function amountLikes(arrayUsers) {
-  let sumLikes = 0;
-  const amountUsers = arrayUsers.length;
+// function amountLikes(arrayUsers) {
+//   let sumLikes = 0;
+//   const amountUsers = arrayUsers.length;
 
-  for (let x = 0; x < amountUsers; x++) {
-    if (arrayUsers[x].user_places.like) {
-      sumLikes += 1;
-    } else {
-      return;
-    }
-  }
-  return sumLikes;
-}
+//   for (let x = 0; x < amountUsers; x++) {
+//     if (arrayUsers[x].user_places.like) {
+//       sumLikes += 1;
+//     } else {
+//       return;
+//     }
+//   }
+//   return sumLikes;
+// }
 
 // show amount of likes
-function amountSaved(arrayUsers) {
-  let sumSaved = 0;
-  const amountUsers = arrayUsers.length;
+// function amountSaved(arrayUsers) {
+//   let sumSaved = 0;
+//   const amountUsers = arrayUsers.length;
 
-  for (let x = 0; x < amountUsers; x++) {
-    if (arrayUsers[x].user_places.saved) {
-      sumSaved += 1;
-    } else {
-      return;
-    }
-  }
-  return sumSaved;
-}
+//   for (let x = 0; x < amountUsers; x++) {
+//     if (arrayUsers[x].user_places.saved) {
+//       sumSaved += 1;
+//     } else {
+//       return;
+//     }
+//   }
+//   return sumSaved;
+// }
