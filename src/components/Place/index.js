@@ -82,7 +82,7 @@ export default function Place(props) {
         <h3>
           {showStars(placeRating)} ({placeRating})
         </h3>
-        <img src={props.image} alt={props.name} />
+        <img style={{ height: "420px" }} src={props.image} alt={props.name} />
         <br />
         {token ? (
           <>
