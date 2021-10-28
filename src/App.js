@@ -30,8 +30,8 @@ function App() {
       <MessageBox />
       <Switch>
         {isLoading ? <Loading /> : null}
-        <Route exact path="/" component={Places} />
         <Route path="/places/:id" component={PlaceDetails} />
+        <Route exact path="/" component={Places} />
         <Route path="/places" component={Places} />
         <Route path="/reviews" component={Reviews} />
         <Route path="/signup" component={SignUp} />
