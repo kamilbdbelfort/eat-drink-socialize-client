@@ -22,9 +22,6 @@ export const Form = ({ onSubmit, url, setUrl }) => {
       .catch((err) => console.log(err));
   };
 
-  console.log("url:", url);
-  console.log("setUrl:", setUrl);
-
   return (
     <form onSubmit={onSubmit}>
       <div className="form-group">

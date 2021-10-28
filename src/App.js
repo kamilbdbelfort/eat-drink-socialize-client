@@ -31,8 +31,8 @@ function App() {
       <Switch>
         {isLoading ? <Loading /> : null}
         <Route exact path="/" component={Places} />
-        <Route path="/places" component={Places} />
         <Route path="/places/:id" component={PlaceDetails} />
+        <Route path="/places" component={Places} />
         <Route path="/reviews" component={Reviews} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
