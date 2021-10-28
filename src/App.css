@@ -44,7 +44,7 @@
   border: none;
 }
 
-.p-5.carousel-caption {
+div.p-5.carousel-caption {
   font-size: 20px;
   width: 80%;
   color: white;
