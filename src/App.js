@@ -31,12 +31,12 @@ function App() {
       <Switch>
         {isLoading ? <Loading /> : null}
         <Route path="/places/:id" component={PlaceDetails} />
-        <Route exact path="/" component={Places} />
         <Route path="/places" component={Places} />
         <Route path="/reviews" component={Reviews} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/me" component={UserDetails} />
+        <Route exact path="/" component={Places} />
       </Switch>
     </div>
   );
