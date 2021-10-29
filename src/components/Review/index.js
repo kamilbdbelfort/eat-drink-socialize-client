@@ -8,7 +8,7 @@ import { showStars } from "../../functions";
 export default function Review(props) {
   const { id, title, comment, rating, image, showLink } = props.review;
 
-  console.log("user", props.review);
+  console.log("review", props.review);
   // console.log("place", place);
 
   return (
@@ -16,7 +16,7 @@ export default function Review(props) {
       <div style={{ width: "10%" }}></div>
       <Jumbotron className="Review-component">
         <h2>
-          {props.review.place} {showStars(rating)}
+          {} {showStars(rating)}
         </h2>
         <br />
         <h3>{title}</h3>
@@ -27,7 +27,7 @@ export default function Review(props) {
         <h4>{comment}</h4>
         <br />
         <h6>
-          <i>posted by {props.review.user}</i>
+          <i>posted by {}</i>
         </h6>
         {showLink ? (
           <Link to={`/reviews/${id}`}>
