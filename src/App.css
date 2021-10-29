@@ -202,8 +202,6 @@ img {
 .div.list-group-item {
   background-color: teal;
   color: white;
-  width: fit-content;
-  border: none;
 }
 
 .modal-cover {
