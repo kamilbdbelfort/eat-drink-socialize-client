@@ -37,7 +37,7 @@
 .Review-component.jumbotron {
   background-color: darkslategray;
   color: papayawhip;
-  max-width: auto;
+  max-width: 800px;
   max-height: 500px;
 }
 
