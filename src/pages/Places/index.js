@@ -65,6 +65,8 @@ export default function Places() {
                   place={place.place}
                   name={place.name}
                   image={place.image}
+                  reviews={place.reviews}
+                  users={place.users}
                   showLink={true}
                 />
               </div>
