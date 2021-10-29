@@ -17,6 +17,7 @@ export default function Review(props) {
         {/* <h2>{props.review.place.name}</h2>
          */}
         <h3>{title}</h3>
+        <br />
         <h2>
           {props.review.place.name} {showStars(rating)}
         </h2>{" "}
