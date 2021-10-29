@@ -16,7 +16,7 @@ export default function Review(props) {
       <Jumbotron className="Review-component">
         <h2>
           {props.review.place.name} {showStars(rating)}
-        </h2>{" "}
+        </h2>
         <br />
         <h3>{title}</h3>
         <i>posted by {user.name}</i>
