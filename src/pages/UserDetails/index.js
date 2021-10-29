@@ -46,7 +46,6 @@ export default function UserDetails() {
                       name={place.name}
                       image={place.image}
                       reviews={place.reviews}
-                      users={place.users}
                       showLink={true}
                     />
                   </div>

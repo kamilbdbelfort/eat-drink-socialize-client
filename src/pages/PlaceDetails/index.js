@@ -29,7 +29,6 @@ export default function PlaceDetails() {
                   name={place.name}
                   image={place.image}
                   reviews={place.reviews}
-                  users={place.users}
                   showLink={false}
                 />
               </div>
