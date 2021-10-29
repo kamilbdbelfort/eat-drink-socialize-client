@@ -37,8 +37,8 @@
 .Review-component.jumbotron {
   background-color: darkslategray;
   color: papayawhip;
-  width: 625px;
-  height: 625px;
+  max-width: 625px;
+  max-height: 625px;
 }
 
 .Button-place {
