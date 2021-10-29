@@ -37,6 +37,8 @@
 .Review-component.jumbotron {
   background-color: darkslategray;
   color: papayawhip;
+  width: 550px;
+  height: 625px;
 }
 
 .Button-place {
@@ -48,6 +50,10 @@ div.p-5.carousel-caption {
   font-size: 20px;
   width: 80%;
   color: white;
+}
+
+.p {
+  font-size: 12px;
 }
 
 .carousel.slide {

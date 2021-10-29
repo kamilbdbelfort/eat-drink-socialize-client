@@ -14,11 +14,11 @@ export default function Review(props) {
     <>
       <div style={{ width: "25%" }}></div>
       <Jumbotron className="Review-component">
-        <h2>
+        <h4>
           {props.review.place.name} {showStars(rating)}
-        </h2>
+        </h4>
         <br />
-        <h3>{title}</h3>
+        <h5>{title}</h5>
         <i>posted by {user.name}</i>
         <img src={image} alt={title} />
         <p>{comment}</p>
