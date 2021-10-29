@@ -10,7 +10,12 @@ const placeDetailsFetched = (place) => ({
 
 export const fetchPlaceById = (id) => {
   return async (dispatch, getState) => {
-    const response = await axios.get(`${apiUrl}/places/${id}`);
-    dispatch(placeDetailsFetched(response.data));
+    try {
+      const response = await axios.get(`${apiUrl}/places/${id}`);
+      dispatch(placeDetailsFetched(response.data));
+    } catch (error) {
+      console.log("Im in catch");
+      console.log(error);
+    }
   };
 };
