@@ -18,7 +18,9 @@ export default function Review(props) {
         <h3>
           {props.review.place.name} {showStars(rating)}
         </h3>
+        <br />
         <img src={image} alt={title} />
+        <br />
         {comment} <i>posted by {user.name}</i>
         {showLink ? (
           <Link to={`/reviews/${id}`}>
