@@ -12,7 +12,7 @@ export default function Review(props) {
 
   return (
     <>
-      <div style={{ width: "25%" }}></div>
+      <div style={{ width: "10%" }}></div>
       <Jumbotron className="Review-component">
         <h2>
           {props.review.place.name} {showStars(rating)}
@@ -34,7 +34,7 @@ export default function Review(props) {
           </Link>
         ) : null}
       </Jumbotron>
-      <div style={{ width: "25%" }}></div>
+      <div style={{ width: "10%" }}></div>
     </>
   );
 }
