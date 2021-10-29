@@ -26,7 +26,7 @@ export default function Review(props) {
         <h4>{comment}</h4>
         <br />
         <h6>
-          <i>posted by {user.name}</i>
+          <i>posted by {/*{user.name}*/}</i>
         </h6>
         {showLink ? (
           <Link to={`/reviews/${id}`}>
