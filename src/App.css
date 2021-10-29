@@ -199,6 +199,11 @@ img {
   height: 650px;
 }
 
+.list-group-item {
+  background-color: teal;
+  color: white;
+}
+
 .modal-cover {
   position: fixed;
   top: 0;
