@@ -17,9 +17,11 @@ export default function Review(props) {
         <h2>
           {props.review.place.name} {showStars(rating)}
         </h2>
+        <br />
         <h3>{title}</h3>
         <br />
         <img src={image} alt={title} />
+        <br />
         <br />
         <h4>{comment}</h4>
         <br />
