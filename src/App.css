@@ -101,8 +101,8 @@ img.Carousel-item-img {
 }
 
 img {
-  width: 480px;
-  height: 300px;
+  max-width: 480px;
+  max-height: 300px;
 }
 
 .searchbar {
