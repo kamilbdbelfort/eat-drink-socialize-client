@@ -66,13 +66,13 @@ div.p-5.carousel-caption {
 }
 
 .Carousel-item.active.carousel-item {
-  max-width: 1050px;
-  max-height: 900px;
+  max-width: 750px;
+  max-height: 750px;
 }
 
 img.Carousel-item-img {
-  width: 1080px;
-  height: 900px;
+  max-width: 750px;
+  max-height: 750px;
 }
 
 .Page-layout {
