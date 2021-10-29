@@ -37,8 +37,8 @@
 .Review-component.jumbotron {
   background-color: darkslategray;
   color: papayawhip;
-  max-width: 625px;
-  max-height: 625px;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .Button-place {
@@ -107,8 +107,8 @@ img.Carousel-item-img {
 }
 
 img {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 450px;
+  max-height: 450px;
 }
 
 .searchbar {
