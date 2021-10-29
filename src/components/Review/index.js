@@ -17,11 +17,9 @@ export default function Review(props) {
         <h2>
           {props.review.place.name} {showStars(rating)}
         </h2>
-        <br />
         <h3>{title}</h3>
-        <i>posted by {user.name}</i>
         <img src={image} alt={title} />
-        <p>{comment}</p>
+        <p>{comment}</p> <i>posted by {user.name}</i>
         {showLink ? (
           <Link to={`/reviews/${id}`}>
             <Button>View the review...</Button>
