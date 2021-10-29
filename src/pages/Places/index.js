@@ -11,6 +11,7 @@ import Place from "../../components/Place";
 export default function Places() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
   const places = useSelector(selectPlaces);
   const tags = useSelector(selectTags);
 

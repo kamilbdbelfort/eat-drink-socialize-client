@@ -37,13 +37,13 @@ export default function PlaceDetails() {
               <ListGroupItem>
                 <i>City:</i>{" "}
                 <b>
-                  {place.city}, {place.country}
+                  {place?.city}, {place?.country}
                 </b>
               </ListGroupItem>
               <ListGroupItem>
                 <i>Address:</i>{" "}
                 <b>
-                  {place.street} {place.number}, {place.postcode}
+                  {place?.street} {place?.number}, {place?.postcode}
                 </b>
               </ListGroupItem>
             </ListGroup>

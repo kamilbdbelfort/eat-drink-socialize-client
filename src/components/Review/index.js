@@ -9,7 +9,7 @@ export default function Review(props) {
   const { id, title, comment, rating, image, showLink } = props.review;
 
   console.log("review", props.review);
-  console.log("place name", props.review.place.name);
+  console.log("place name", props?.review?.place?.name);
 
   return (
     <>

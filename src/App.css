@@ -118,6 +118,10 @@ img {
   height: 5rem;
 }
 
+.search {
+  margin-top: 10px;
+}
+
 .searchbar input {
   border: 2px solid #eee;
   background: #eee;
