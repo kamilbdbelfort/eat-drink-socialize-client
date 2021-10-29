@@ -97,7 +97,7 @@ export default function Place(props) {
             </button>
             {placeSaved}
             <span role="img" aria-label="Reviews">
-              💬 {!props.reviews ? 0 : props.reviews.length}
+              💬 {!reviews ? 0 : reviews.length}
             </span>
           </>
         ) : null}
