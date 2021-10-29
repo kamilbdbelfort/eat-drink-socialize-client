@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { showStars } from "../../functions";
 
 export default function Review(props) {
-  const { id, title, comment, rating, image, user, showLink } = props.review;
-  const { name } = props.review.place;
+  const { id, title, comment, rating, image, user, showLink, place } =
+    props.review;
 
   console.log("review props", props.review);
 
@@ -16,7 +16,7 @@ export default function Review(props) {
       <div style={{ width: "10%" }}></div>
       <Jumbotron className="Review-component">
         <h2>
-          {name ? name : null} {showStars(rating)}
+          {place.name} {showStars(rating)}
         </h2>
         <br />
         <h3>{title}</h3>
