@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import { Container } from "../OpenForm/Container";
 import { selectUser } from "../../store/user/selectors";
+import { selectReviews } from "../../store/reviews/selectors";
 import { postReview } from "../../store/reviews/actions";
 import { showStars } from "../../functions";
 
@@ -18,7 +19,8 @@ export default function Place(props) {
   const token = user.token;
   const [likeStatus, setLikeStatus] = useState(true);
   const [savedStatus, setSavedStatus] = useState(true);
-  const placeRating = !props.reviews ? 0 : avgRating(props.reviews);
+  const reviews = useSelector(selectReviews);
+  const placeRating = !reviews ? 0 : avgRating(reviews);
   const triggerText = "Give a review!";
   const dispatch = useDispatch();
   const likeIcon = ["💛", "🤍"];
