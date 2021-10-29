@@ -16,7 +16,7 @@ export default function Review(props) {
       <div style={{ width: "10%" }}></div>
       <Jumbotron className="Review-component">
         <h2>
-          {place.name} {showStars(rating)}
+          {/* {place.name} */} {showStars(rating)}
         </h2>
         <br />
         <h3>{title}</h3>
