@@ -28,8 +28,6 @@ export default function PlaceDetails() {
                   place={place}
                   name={place.name}
                   image={place.image}
-                  reviews={place.reviews}
-                  users={place.users}
                   showLink={false}
                 />
               </div>

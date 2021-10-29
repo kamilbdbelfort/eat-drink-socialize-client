@@ -65,7 +65,6 @@ export default function Places() {
                   place={place.place}
                   name={place.name}
                   image={place.image}
-                  users={place.users}
                   showLink={true}
                 />
               </div>
