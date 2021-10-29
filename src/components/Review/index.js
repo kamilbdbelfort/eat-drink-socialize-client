@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
@@ -7,20 +7,20 @@ import { showStars } from "../../functions";
 
 export default function Review(props) {
   const { id, title, comment, rating, image, showLink } = props.review;
-  const [user, setUser] = useState(props.review.user);
-  const userName = user;
-  const [place, setPlace] = useState(props.review.place);
-  const placeName = place;
+  const user = props.review.user;
+  // const userName = user;
+  // const [place, setPlace] = useState(props.review.place);
+  // const placeName = place;
 
   console.log("user", user);
-  console.log("place", place);
+  // console.log("place", place);
 
   return (
     <>
       <div style={{ width: "10%" }}></div>
       <Jumbotron className="Review-component">
         <h2>
-          {placeName} {showStars(rating)}
+          {} {showStars(rating)}
         </h2>
         <br />
         <h3>{title}</h3>
@@ -31,7 +31,7 @@ export default function Review(props) {
         <h4>{comment}</h4>
         <br />
         <h6>
-          <i>posted by {userName}</i>
+          <i>posted by {}</i>
         </h6>
         {showLink ? (
           <Link to={`/reviews/${id}`}>
